@@ -31,6 +31,7 @@ function populateTextarea() {
     const parseForm = JSON.parse(savedForm);
 
     if (savedForm) {
+        formData = parseForm;
         (refs.textarea.value = parseForm.message || "");
         (refs.input.value = parseForm.email || "");
     }
@@ -39,7 +40,7 @@ function populateTextarea() {
 /** Reset form*/
 function onFormSubmit(e) {
     e.preventDefault();
-    console.log('Відправити форму');
+    console.log(formData);
     e.currentTarget.reset();
     localStorage.removeItem(STORAGE_KEY);
 }
